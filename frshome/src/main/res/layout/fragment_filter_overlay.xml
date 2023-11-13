@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_round_bg"
+        >
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/inner_left_guide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".38"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/inner_right_guide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".62"
+            />
+
+
+        <View
+            android:id="@+id/pill"
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/pill"
+
+            app:layout_constraintStart_toStartOf="@id/inner_left_guide"
+            app:layout_constraintEnd_toEndOf="@id/inner_right_guide"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/users"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="10dp"
+
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+            app:layout_constraintTop_toBottomOf="@id/pill"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            tools:listitem="@layout/item_selection_layout"
+            tools:itemCount="3"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

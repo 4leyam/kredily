@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="k_accent">#273458</color>
+    <color name="shadow">#66000000</color>
+    <color name="danger_red">#CC0019</color>
+    <color name="white">#fff</color>
+    <color name="label">#212121</color>
+    <color name="label_primary">#222</color>
+    <color name="label_secondary">#777</color>
+    <color name="t_label_secondary">#33777777</color>
+</resources>

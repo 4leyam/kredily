@@ -15,7 +15,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "Kredily"
 include(":app")
-include(":domain")
+include(":onBoarding")
+include(":frshome")
+include(":admin")
 include(":common")
-include(":core")
-include(":data")

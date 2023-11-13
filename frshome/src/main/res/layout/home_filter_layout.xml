@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="firsOption"
+            type="String" />
+
+        <variable
+            name="secondOption"
+            type="String" />
+
+        <variable
+            name="selection"
+            type="String" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:animateLayoutChanges="true"
+        >
+
+
+        <include
+            android:id="@+id/other"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            layout="@layout/home_filter_option_item_layout"
+            app:isAddedFilter="@{false}"
+            app:isFilterGroup="@{false}"
+            app:name='@{"Other"}'
+            app:isSelected="@{false}"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <include
+            android:id="@+id/first"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            layout="@layout/home_filter_option_item_layout"
+
+            app:isAddedFilter="@{false}"
+            app:isFilterGroup="@{true}"
+            app:name='@{firsOption}'
+            app:isSelected="@{selection.equals(firsOption)}"
+
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/second"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <include
+            android:id="@+id/second"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            layout="@layout/home_filter_option_item_layout"
+
+            app:isAddedFilter="@{false}"
+            app:isFilterGroup="@{true}"
+            app:name='@{secondOption}'
+            app:isSelected="@{selection.equals(secondOption)}"
+
+            app:layout_constraintEnd_toStartOf="@id/other"
+            app:layout_constraintStart_toEndOf="@id/first"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/clear_all"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/clear_all"
+            android:textSize="18sp"
+            android:textColor="@color/k_accent"
+            android:paddingHorizontal="15dp"
+            android:layout_marginTop="20dp"
+            android:visibility="@{selection == null || selection.blank ? View.GONE : View.VISIBLE , default = gone}"
+
+            app:layout_constraintTop_toBottomOf="@id/first"
+            app:layout_constraintStart_toStartOf="@id/first"
+            app:layout_constraintHorizontal_bias="0"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/users"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="10dp"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="10dp"
+            android:visibility="@{selection == null || selection.blank ? View.GONE : View.VISIBLE , default = gone}"
+
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+            app:layout_constraintTop_toTopOf="@id/clear_all"
+            app:layout_constraintBottom_toBottomOf="@id/clear_all"
+            app:layout_constraintStart_toEndOf="@id/clear_all"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            tools:listitem="@layout/home_filter_option_item_layout"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

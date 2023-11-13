@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="canProceed"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        tools:context=".OTPFragment">
+
+
+
+        <include
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/navigation_header_layout"
+
+            app:headerTitle='@{&quot;OTP Verification&quot;}'
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/inner_left_guide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".07"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/inner_right_guide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".93"
+            />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="com.example.common.OTPInputFragment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            app:layout_constraintStart_toStartOf="@id/inner_left_guide"
+            app:layout_constraintEnd_toEndOf="@id/inner_right_guide"
+            app:layout_constraintTop_toBottomOf="@id/header"
+            tools:layout="@layout/otp_style_input_layout"
+            />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/proceed"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:background="@drawable/login_bt_bg"
+            android:layout_marginTop="80dp"
+            android:text="@string/proceed"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginHorizontal="8dp"
+            android:visibility="@{canProceed ? View.VISIBLE : View.GONE , default = gone}"
+
+            app:layout_constraintStart_toStartOf="@id/nav_host_fragment"
+            app:layout_constraintEnd_toEndOf="@id/nav_host_fragment"
+            app:layout_constraintTop_toBottomOf="@id/nav_host_fragment"
+
+
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

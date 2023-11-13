@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+
+
+
+    <data>
+        <variable
+            name="isTotalSelected"
+            type="Boolean" />
+
+        <variable
+            name="firsOption"
+            type="String" />
+
+        <variable
+            name="secondOption"
+            type="String" />
+
+        <variable
+            name="selection"
+            type="String" />
+    </data>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".FRSHomeFragment">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/inner_left_guide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".06"
+            />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/inner_ri_guide_guide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".94"
+            />
+
+
+        <include
+            android:id="@+id/home_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            layout="@layout/home_search_layout"
+            app:layout_constraintStart_toStartOf="@id/inner_left_guide"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <include
+            android:id="@+id/home_filter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            layout="@layout/home_filter_layout"
+
+            app:firsOption="@{firsOption}"
+            app:secondOption="@{secondOption}"
+            app:selection="@{selection}"
+
+            app:layout_constraintStart_toStartOf="@id/inner_left_guide"
+            app:layout_constraintEnd_toEndOf="@id/inner_ri_guide_guide"
+            app:layout_constraintTop_toBottomOf="@id/home_search"
+            />
+
+        <include
+            android:id="@+id/emp_selection"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:isTotalSelected="@{isTotalSelected}"
+            layout="@layout/home_employee_selection_layout"
+            app:layout_constraintStart_toStartOf="@id/inner_left_guide"
+            app:layout_constraintEnd_toEndOf="@id/inner_ri_guide_guide"
+            app:layout_constraintTop_toBottomOf="@id/home_filter"
+            />
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/employees"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:minHeight="200dp"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="10dp"
+
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+            app:layout_constraintTop_toBottomOf="@id/emp_selection"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            tools:listitem="@layout/home_employee_list_item_layout"
+            />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/camera_butt"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:elevation="16dp"
+            android:background="@drawable/login_bt_bg"
+            android:src="@drawable/photo_camera"
+            android:padding="20dp"
+            android:layout_marginBottom="25dp"
+
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

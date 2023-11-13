@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/on_boarding_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.onboarding.presentation.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <deepLink
+            android:autoVerify="true"
+            app:uri="android-app://com.example.kredily/login" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_OTPFragment2"
+            app:destination="@id/OTPFragment2" />
+    </fragment>
+    <dialog
+        android:id="@+id/OTPFilterOverlayFragment"
+        android:name="com.example.onboarding.presentation.password.OTPFilterOverlayFragment"
+        android:label="fragment_o_t_p_filter_overlay"
+        tools:layout="@layout/fragment_o_t_p_filter_overlay" >
+        <argument
+            android:name="location"
+            app:argType="string" />
+    </dialog>
+    <fragment
+        android:id="@+id/passFragment"
+        android:name="com.example.onboarding.presentation.password.PassFragment"
+        android:label="fragment_pass"
+        tools:layout="@layout/fragment_pass" >
+        <action
+            android:id="@+id/action_passFragment_to_OTPFilterOverlayFragment"
+            app:destination="@id/OTPFilterOverlayFragment" />
+        <argument
+            android:name="userId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <deepLink
+            android:autoVerify="true"
+            app:uri="android-app://com.example.kredily/passFragment/{userId}" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/OTPFragment2"
+        android:name="com.example.common.OTPFragment"
+        android:label="OTPFragment" >
+        <action
+            android:id="@+id/action_OTPFragment2_to_passFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/passFragment" />
+        <argument
+            android:name="userId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+
+    </fragment>
+</navigation>

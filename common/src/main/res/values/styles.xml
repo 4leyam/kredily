@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- BottomSheetDialog Theme -->
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+<!--    <style name="AppTransparentBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">-->
+<!--        <item name="bottomSheetStyle">@style/AppTransparentModalStyle</item>-->
+<!--    </style>-->
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/login_round_bg</item>
+<!--        <item name="android:backgroundDimEnabled">true</item>-->
+<!--        <item name="android:backgroundDimAmount">0.5</item>-->
+    </style>
+
+<!--    <style name="AppTransparentModalStyle" parent="Widget.Design.BottomSheet.Modal">-->
+<!--        <item name="android:background">#77000000</item>-->
+<!--        <item name="android:shadowRadius">505</item>-->
+<!--        <item name="android:shadowColor">#000</item>-->
+<!--    </style>-->
+
+
+</resources>

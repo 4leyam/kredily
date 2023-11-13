@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.login.LoginFragment">
+
+
+        <include
+            android:id="@+id/login_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/login_shell_layout"
+            app:isForLogin="@{true}"
+            app:flTitle='@{"Welcome"}'
+            app:flMessage='@{"Please enter your details to get started!"}'
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

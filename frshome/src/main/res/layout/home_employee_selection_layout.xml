@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="isTotalSelected"
+            type="Boolean" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        >
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".5"
+            />
+
+        <View
+            android:id="@+id/selection_bg"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/emp_selection_bg"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/total"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@{isTotalSelected ? @drawable/selection_fg : @drawable/trans_emp_selection_bg , default = @drawable/selection_fg}"
+            android:layout_margin="10dp"
+            android:text="Total(5)"
+            android:textColor="@color/label"
+            android:gravity="center"
+            android:textSize="15sp"
+
+
+            app:layout_constraintStart_toStartOf="@id/selection_bg"
+            app:layout_constraintEnd_toStartOf="@id/center"
+            app:layout_constraintTop_toTopOf="@id/selection_bg"
+            app:layout_constraintBottom_toBottomOf="@id/selection_bg"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/unconf"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textColor="@color/danger_red"
+            android:textStyle="bold"
+            android:background="@{isTotalSelected ? @drawable/trans_emp_selection_bg : @drawable/selection_fg , default = @drawable/trans_emp_selection_bg}"
+            android:layout_margin="10dp"
+            android:text="Unconfigured(2)"
+            android:gravity="center"
+            android:textSize="15sp"
+
+            app:layout_constraintStart_toEndOf="@id/center"
+            app:layout_constraintEnd_toEndOf="@id/selection_bg"
+            app:layout_constraintTop_toTopOf="@id/selection_bg"
+            app:layout_constraintBottom_toBottomOf="@id/selection_bg"
+
+            />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

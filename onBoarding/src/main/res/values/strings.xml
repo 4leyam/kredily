@@ -1,0 +1,13 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome">Welcome</string>
+    <string name="pass_hint">Password</string>
+    <string name="email_hint">Email</string>
+    <string name="login">LOG IN</string>
+    <string name="login_w_otp">LOG IN WITH OTP</string>
+    <string name="enter_pass">Enter Passcode</string>
+    <string name="confirm_pass">Confirm Passcode</string>
+    <string name="confirm_office_loc">Confirm your office location</string>
+    <string name="proceed">Proceed</string>
+</resources>
